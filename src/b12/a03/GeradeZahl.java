@@ -1,17 +1,15 @@
 package b12.a03;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 public class GeradeZahl {
 	private int val;
-
+	
 	public GeradeZahl(int val) {
 		val = val % 2 == 1 ? val - 1 : val;
 		this.val = val;
 	}
 
 	public GeradeZahl(GeradeZahl gz) {
-		new GeradeZahl(gz.val);
+		this(gz.getVal());
 	}
 	
 	public int getVal() {
@@ -39,29 +37,5 @@ public class GeradeZahl {
 	public GeradeZahl getProd(GeradeZahl g) {
 		return new GeradeZahl(val * g.val);
 	}
-	
-	public void test() {
-		int squareVal = 2;
-		int oddVal = squareVal + 1;
-		
-		// test behavior with square value
-		GeradeZahl gz = new GeradeZahl(squareVal);
-		
-		assertEquals(squareVal, gz.getVal());
-		
-		gz.setVal(squareVal);
-		
-		assertEquals(squareVal, gz.getVal());
-		
-		// test behavior with odd value
-		gz = new GeradeZahl(oddVal);
-		
-		assertEquals(squareVal, gz.getVal());
-		
-		gz.setVal(oddVal);
-
-		assertEquals(squareVal, gz.getVal());
-	}
-	
 
 }

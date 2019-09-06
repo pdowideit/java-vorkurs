@@ -1,7 +1,5 @@
 package b12.a04;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -12,12 +10,8 @@ public class Note {
 
 	private double note;
 
-	public Note(Note n) {
-		try {
-			new Note(n.note);
-		} catch (NoNoteException e) {
-			e.printStackTrace();
-		}
+	public Note(Note n) throws NoNoteException {
+		this(n.note);
 	}
 
 	public Note(double n) throws NoNoteException {
@@ -44,27 +38,5 @@ public class Note {
 		}
 	}
 
-	public void test() {
-		double note = 1.3;
-		double falscheNote = 1.2;
-
-		// test behavior with correct note
-
-		try {
-			Note n = new Note(note);
-			assertEquals(note, n.getNote());
-		} catch (NoNoteException e) {
-			assert false;
-		}
-
-		// test behavior with wrong note
-		try {
-			Note n = new Note(falscheNote);
-			n.getNote();
-			assert false;
-		} catch (NoNoteException e) {
-			assert true;
-		}
-	}
-
+	
 }

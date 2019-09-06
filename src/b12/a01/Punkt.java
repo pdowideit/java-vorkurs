@@ -1,7 +1,5 @@
 package b12.a01;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 public class Punkt {
 	private int x;
 	private int y;
@@ -12,7 +10,7 @@ public class Punkt {
 	}
 
 	public Punkt(Punkt p) {
-		new Punkt(p.x, p.y);
+		this(p.x, p.y);
 	}
 
 	public void schiebe(double dx, double dy) {
@@ -41,23 +39,10 @@ public class Punkt {
 		this.y = y;
 	}
 
-	public void test() {
-		int x = 0;
-		int y = 1;
-
-		Punkt p = new Punkt(x, y);
-
-		assertEquals(x, p.getX());
-		assertEquals(y, p.getY());
-
-		p.setX(x + 1);
-		p.setY(y + 1);
-
-		assertEquals(x + 1, p.getX());
-		assertEquals(y + 1, p.getY());
-
+	public double getDistance(Punkt p) {
+		return Math.sqrt(Math.pow(this.x - p.x, 2) * Math.pow(this.y - p.y, 2));
 	}
-
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;

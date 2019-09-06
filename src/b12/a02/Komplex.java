@@ -1,9 +1,5 @@
 package b12.a02;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
-import org.junit.Test;
-
 public class Komplex {
 	private double re, im;
 
@@ -13,7 +9,7 @@ public class Komplex {
 	}
 
 	public Komplex(Komplex k) {
-		new Komplex(k.re, k.im);
+		this(k.re, k.im);
 	}
 
 	@Override
@@ -64,22 +60,5 @@ public class Komplex {
 		this.im = oldRe * k.im - this.im * k.re;
 	}
 	
-	@Test
-	public void test() {
-		double a = 1.0;
-		double b = 2.0;
-
-		Komplex k = new Komplex(a, b);
-
-		assertEquals(a, k.getA());
-		assertEquals(b, k.getB());
-
-		k.setA(a + 1);
-		k.setB(b + 1);
-
-		assertEquals(a + 1, k.getA());
-		assertEquals(b + 1, k.getB());
-
-	}
-
+	
 }

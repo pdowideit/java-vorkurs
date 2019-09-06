@@ -1,61 +1,64 @@
 package b12.a06;
 
+import java.util.Arrays;
+
 public class Dominostein {
-	int top, bottom;
+	private int links, rechts;
 
 	public Dominostein(Dominostein d) throws NoDominoNumberException {
-		new Dominostein(d.top, d.bottom);
+		this(d.links,d.rechts);
 	}
 
-	public Dominostein(int top, int bottom) throws NoDominoNumberException {
-		if (0 <= top && top <= 6) {
-			if (0 <= bottom && bottom <= 6) {
-				this.bottom = bottom;
-				this.top = top;
-				return;
-			} else {
-				throw new NoDominoNumberException(bottom);
-			}
-		} else {
-			throw new NoDominoNumberException(top);
+	public void checkDominoNumber(int num) throws NoDominoNumberException {
+		if(0 > num || num > 6) {
+			throw new NoDominoNumberException(num);
 		}
+	}
+	
+	public Dominostein(int top, int bottom) throws NoDominoNumberException {
+		checkDominoNumber(top);
+		checkDominoNumber(bottom);
+		
+		this.links = top;
+		this.rechts = bottom;
 	}
 
 	public void dreheUm() {
-		int temp = bottom;
-		bottom = top;
-		top = temp;
+		int temp = rechts;
+		rechts = links;
+		links = temp;
 	}
 
 	public int[] getValues() {
-		return new int[] { top, bottom };
+		return new int[] { links, rechts };
 	}
 
-	public int getTop() {
-		return top;
+	public int getLinks() {
+		return links;
 	}
 
-	public void setTop(int top) throws NoDominoNumberException {
-		if (0 <= top && top <= 6) {
-			this.top = top;
+	public void setLinks(int links) throws NoDominoNumberException {
+		if (0 <= links && links <= 6) {
+			this.links = links;
 		} else {
-			throw new NoDominoNumberException(top);
+			throw new NoDominoNumberException(links);
 		}
 	}
 
-	public int getBottom() {
-		return bottom;
+	public int getRechts() {
+		return rechts;
 	}
 
-	public void setBottom(int bottom) throws NoDominoNumberException {
-		if (0 <= bottom && bottom <= 6) {
-			this.bottom = bottom;
+	public void setRechts(int rechts) throws NoDominoNumberException {
+		if (0 <= rechts && rechts <= 6) {
+			this.rechts = rechts;
 		} else {
-			throw new NoDominoNumberException(top);
+			throw new NoDominoNumberException(links);
 		}
 	}
-
-	public void test() {
+	
+	@Override
+	public String toString() {
+		return Arrays.toString(getValues());
 	}
-
 }
