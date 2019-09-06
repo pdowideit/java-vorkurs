@@ -1,0 +1,8 @@
+14.1: 
+14.2: ja
+14.3: nein, zirkuläre abhängigkeiten funktionieren nicht. außerdem ist das objekt durch this immer referenzierbar
+14.5: Element.pos
+14.6: 0.0d
+14.7: a = "abcdef" ; b = "abc"
+14.8: x={4,2,3}; y={1,2,3}
+14.9: Zu Beginn des Schleifendurchlaufs
