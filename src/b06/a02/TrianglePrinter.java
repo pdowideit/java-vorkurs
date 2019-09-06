@@ -4,7 +4,7 @@ public class TrianglePrinter {
 	
 	public static void main(String[] args) {
 		printRightAngledTriangle(5);
-		printCenteredTriangle(5);
+		printCenteredTriangle(15);
 	}
 	
 	public static void printRightAngledTriangle(int height) {
