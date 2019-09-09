@@ -1,4 +1,4 @@
-package b15;
+package b15.a03;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -56,7 +56,7 @@ public class Schachstellung {
 					exceptionTexts.add("Figur " + fig + " existiert nicht.");
 				}
 			} else {
-				exceptionTexts.add("Feld [" + zeile + "," + spalte + "] nicht auf dem Brett.");
+				exceptionTexts.add("Feld [" + (zeile+1) + "," + (spalte+1) + "] nicht auf dem Brett.");
 			}
 		}
 
@@ -73,7 +73,7 @@ public class Schachstellung {
 	public static void main(String[] args) {
 		Schachstellung ss = new Schachstellung();
 		try {
-			ss.setzeSchachstellung("b22K24l28B23k66T99F12");
+			ss.setzeSchachstellung("b22K24l28B23k66");
 		} catch (IllegalArgumentException e) {
 			e.printStackTrace();
 		}
