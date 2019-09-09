@@ -1,5 +1,7 @@
 package b12.a05;
 
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 import org.junit.jupiter.api.Test;
 
 public class TestGeburtstag {
@@ -18,23 +20,9 @@ public class TestGeburtstag {
 			assert false;
 		}
 		
-		try {
-			g = new Geburtstag("JAN", 35);
-			assert false;
-		} catch (NoDayOfMonthException e) {
-			assert true;
-		} catch (NoMonthException e) {
-			assert false;
-		}
-		
-		try {
-			g = new Geburtstag("ABC", 12);
-			assert false;
-		} catch (NoDayOfMonthException e) {
-			assert false;
-		} catch (NoMonthException e) {
-			assert true;
-		}
+		// test exceptions
+		assertThrows(NoDayOfMonthException.class, () -> new Geburtstag("JAN", 35));
+		assertThrows(NoMonthException.class, () -> new Geburtstag("ABC", 12));
 	}
 
 }
