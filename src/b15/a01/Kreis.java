@@ -9,10 +9,11 @@ public class Kreis {
 	public Kreis(double radius, Punkt mittelpunkt) {
 		this.radius = radius;
 		this.mittelpunkt = mittelpunkt;
+	
 	}
 	
 	public Kreis(Kreis k) {
-		this(k.radius,k.mittelpunkt);
+		this(k.radius,new Punkt(k.mittelpunkt));
 	}
 
 	public double getRadius() {
